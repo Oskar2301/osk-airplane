@@ -8,10 +8,6 @@ const routes: Routes = [
     redirectTo: PagesNavigateEnum.GetStarted,
     pathMatch: 'full'
   },
-  {
-    path: '**',
-    redirectTo: PagesNavigateEnum.GetStarted
-  }
 ];
 
 @NgModule({

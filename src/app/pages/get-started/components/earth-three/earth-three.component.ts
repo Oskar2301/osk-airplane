@@ -57,7 +57,6 @@ export class EarthThreeComponent implements AfterViewInit {
   private initModel(): void {
     const loader = new GLTFLoader()
     loader.load('assets/models/earth.glb', (gltf) => {
-      console.log(gltf)
       this.earth = gltf.scene
       const boxCenter = new THREE.Box3().setFromObject(this.earth);
       const center = new THREE.Vector3();

@@ -199,3 +199,73 @@
     transform: translateY(-5px);
   }
 }
+
+@media screen and (max-width: 1500px) {
+  .started {
+    &__info {
+      flex: 1 0 40%;
+    }
+
+    app-earth-three {
+      flex: 1 0 60%;
+    }
+  }
+}
+
+@media screen and (max-width: 1390px) {
+  .started {
+    &__info {
+      flex: 1 0 35%;
+    }
+
+    app-earth-three {
+      flex: 1 0 65%;
+    }
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .started {
+    &__main {
+      flex-direction: column-reverse;
+      margin-top: 20vh;
+    }
+
+    &__wrapper {
+      height: auto;
+    }
+
+    &__info {
+      display: flex;
+      flex-direction: column;
+      z-index: 1;
+      margin-top: -40vh;
+      align-items: center;
+    }
+
+    &__description {
+      display: none;
+    }
+
+    &__title {
+      text-align: center;
+    }
+
+    ::ng-deep .earth {
+      transform: scale(2);
+    }
+  }
+}
+
+@media screen and (max-width: 630px) {
+  .started {
+    &__wrapper {
+      padding: 30px;
+    }
+
+    ::ng-deep .earth {
+      transform: scale(1.5);
+    }
+  }
+}
+
