@@ -1,13 +1,16 @@
 import {NgModule} from "@angular/core";
 import { LoaderComponent } from './components/loader/loader.component';
 import {NgOptimizedImage} from "@angular/common";
+import { BackgroundWaveComponent } from './components/background-wave/background-wave.component';
 
 @NgModule({
   declarations: [
-    LoaderComponent
+    LoaderComponent,
+    BackgroundWaveComponent
   ],
   exports: [
-    LoaderComponent
+    LoaderComponent,
+    BackgroundWaveComponent
   ],
   imports: [
     NgOptimizedImage
