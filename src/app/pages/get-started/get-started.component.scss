@@ -1,0 +1,271 @@
+.started {
+  width: 100%;
+  height: 100vh;
+  background-image: url("/assets/images/space.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: black;
+  color: white;
+  overflow: hidden;
+
+  &__backdrop {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+
+  &__wrapper {
+    padding: 30px 90px 30px 130px;
+    height: 100%;
+  }
+
+  // ------------ HEADER ---------------
+
+  &__header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    p {
+      color: white;
+      font-size: 26px;
+      font-weight: 600;
+    }
+  }
+
+  &__auth {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+
+
+  // ------------ LEFT SIDE ---------------
+
+  &__title {
+    font-size: 65px;
+    font-weight: 800;
+    margin-bottom: 24px;
+  }
+
+  &__description {
+    margin-top: 44px;
+    font-size: 18px;
+    font-weight: 500;
+    max-width: 500px;
+    text-align: justify;
+    line-height: 26px;
+  }
+
+  &__prompt {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 120px;
+
+    p {
+      font-size: 20px;
+      font-weight: 600;
+    }
+  }
+
+  &__arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background: #575757;
+    overflow: hidden;
+
+    img {
+      object-fit: cover;
+      filter: invert(1);
+
+      animation: move-arrow 1s linear 0s infinite alternate none;
+    }
+
+    &:before {
+      content: '';
+      position: absolute;
+      left: -100px;
+      top: 0;
+      width: 40px;
+      height: 100%;
+      background: #fff;
+      filter: blur(20px);
+      transform: skewX(-30deg);
+      animation: light-arrow 1.5s linear 0s infinite;
+    }
+  }
+
+  // ------------ COMMON ------------
+
+  &__button {
+    outline: none;
+    background: none;
+    padding: 10px 16px;
+    font-size: 18px;
+    color: white;
+    border: 0;
+    cursor: pointer;
+    transition: all .2s ease-in-out;
+    border-bottom: 1px solid transparent;
+
+    &:hover {
+      border-bottom: 1px solid white;
+    }
+
+    &-outline {
+      border: 2px solid white;
+      border-radius: 16px;
+      transition: all .2s ease-in-out;
+
+      &:hover {
+        background: white;
+        color: black;
+        transition: all .2s ease-in-out;
+      }
+    }
+
+    &-start {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+
+      border: 1px solid white;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.5);
+      transition: all .2s ease-in-out;
+      font-size: 22px;
+      font-weight: 500;
+
+      &:hover {
+        background: white;
+        color: black;
+        transition: all .2s ease-in-out;
+      }
+    }
+  }
+
+  // ----------- WRAPPERS ------------
+
+  &__main {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 98%;
+  }
+
+  &__info {
+    flex: 1 0 50%;
+  }
+
+  app-earth-three {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1 0 50%;
+    height: 100%;
+  }
+}
+
+@keyframes light-arrow {
+  from {
+    left: -100px
+  }
+
+  to {
+    left: calc(100% + 100px)
+  }
+}
+
+@keyframes move-arrow {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(-5px);
+  }
+}
+
+@media screen and (max-width: 1500px) {
+  .started {
+    &__info {
+      flex: 1 0 40%;
+    }
+
+    app-earth-three {
+      flex: 1 0 60%;
+    }
+  }
+}
+
+@media screen and (max-width: 1390px) {
+  .started {
+    &__info {
+      flex: 1 0 35%;
+    }
+
+    app-earth-three {
+      flex: 1 0 65%;
+    }
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .started {
+    &__main {
+      flex-direction: column-reverse;
+      margin-top: 20vh;
+    }
+
+    &__wrapper {
+      height: auto;
+    }
+
+    &__info {
+      display: flex;
+      flex-direction: column;
+      z-index: 1;
+      margin-top: -40vh;
+      align-items: center;
+    }
+
+    &__description {
+      display: none;
+    }
+
+    &__title {
+      text-align: center;
+    }
+
+    ::ng-deep .earth {
+      transform: scale(2);
+    }
+  }
+}
+
+@media screen and (max-width: 630px) {
+  .started {
+    &__wrapper {
+      padding: 30px;
+    }
+
+    ::ng-deep .earth {
+      transform: scale(1.5);
+    }
+  }
+}
+
