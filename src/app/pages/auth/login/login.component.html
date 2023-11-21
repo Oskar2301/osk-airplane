@@ -1,1 +1,43 @@
-<app-background-wave></app-background-wave>
+<div class="auth">
+  <div class="auth__wrapper">
+    <div class="auth__wrapper-inner">
+      <div class="auth__form-wrap">
+        <form autocomplete="off" [formGroup]="loginForm" (ngSubmit)="submitLogin()">
+          <div class="auth__logo">
+            <img [ngSrc]="logoImage" alt="logo" width="30" height="30">
+            <h4>OSPLANE</h4>
+          </div>
+
+          <div class="auth__heading">
+            <h2>Welcome Back</h2>
+            <h6>Not registered yet?</h6>
+            <a [routerLink]="AuthNavigateEnum.Register" class="toggle">Sign up</a>
+          </div>
+
+          <div class="auth__form">
+            <app-input-outline formControlName="email" type="text" label="Email"></app-input-outline>
+            <app-input-outline formControlName="password" type="password" label="Password"></app-input-outline>
+
+            <app-button
+              label="Sign In"
+              typeButton="submit"
+              styles="mb-2"
+              [isDisabled]="!isValid || (isLoading | async)"
+              [isLoading]="isLoading | async"
+            ></app-button>
+
+            <p class="auth__text">
+              Forgotten your password ? <br/>
+              <a [routerLink]="AuthNavigateEnum.ForgotPassword">Get help</a> signing in
+            </p>
+          </div>
+        </form>
+      </div>
+
+      <div class="auth__image">
+        <img [src]="planeImage" alt="plane">
+      </div>
+    </div>
+  </div>
+  <app-background-wave></app-background-wave>
+</div>

@@ -7,14 +7,14 @@
           <p>OSPLANE</p>
         </div>
         <div class="started__auth">
-          <button class="started__button" routerLink="/login">Sign In</button>
-          <button class="started__button started__button-outline" routerLink="/register">Sign Up</button>
+          <button class="started__button" [routerLink]="AuthNavigateEnum.Login">Sign In</button>
+          <button class="started__button started__button-outline" [routerLink]="AuthNavigateEnum.Register">Sign Up</button>
         </div>
       </div>
       <div class="started__main">
         <div class="started__info">
           <div class="started__title">YOUR MAP<br/>YOUR TRAVEL</div>
-          <button class="started__button started__button-start" routerLink="/login">
+          <button class="started__button started__button-start" [routerLink]="AuthNavigateEnum.Login">
             <img [ngSrc]="logoImage" alt="logo" width="20" height="20">
             <p>Get Started</p>
           </button>

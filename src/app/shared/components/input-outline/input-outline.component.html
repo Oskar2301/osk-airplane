@@ -1,0 +1,14 @@
+<div class="outline">
+  <input
+    #inputRef
+    [type]="type"
+    [value]="value"
+    class="outline__field"
+    [class.outline__active]="isActive"
+    (input)="onChange(inputRef.value)"
+    (focus)="handleFocus()"
+    (blur)="handleBlur($event)"
+    [autocomplete]="isTypePassword ? 'new-password' : 'off'"
+  />
+  <label class="outline__label">{{ label }}</label>
+</div>

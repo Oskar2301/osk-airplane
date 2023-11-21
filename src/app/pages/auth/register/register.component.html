@@ -1,1 +1,39 @@
-<p>register works!</p>
+<div class="auth register">
+  <div class="auth__wrapper">
+    <div class="auth__wrapper-inner">
+      <div class="auth__form-wrap">
+        <form autocomplete="off" [formGroup]="registerForm" (ngSubmit)="submitRegister()">
+          <div class="auth__logo">
+            <img [ngSrc]="logoImage" alt="logo" width="30" height="30">
+            <h4>OSPLANE</h4>
+          </div>
+
+          <div class="auth__heading">
+            <h2>Get Started</h2>
+            <h6>Already have an account?</h6>
+            <a [routerLink]="AuthNavigateEnum.Login" class="toggle">Sign in</a>
+          </div>
+
+          <div class="auth__form">
+            <app-input-outline formControlName="name" type="text" label="Name"></app-input-outline>
+            <app-input-outline formControlName="email" type="text" label="Email"></app-input-outline>
+            <app-input-outline formControlName="password" type="password" label="Password"></app-input-outline>
+
+            <app-button
+              label="Sign Up"
+              styles="mb-2"
+              typeButton="submit"
+              [isDisabled]="!isValid || (isLoading | async)"
+              [isLoading]="isLoading | async"
+            ></app-button>
+          </div>
+        </form>
+      </div>
+
+      <div class="auth__image">
+        <img [src]="planeImage" alt="plane">
+      </div>
+    </div>
+  </div>
+  <app-background-wave></app-background-wave>
+</div>

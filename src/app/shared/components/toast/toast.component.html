@@ -1,0 +1,13 @@
+<div class="toast__wrapper" [ngClass]="toastClasses">
+  <div class="toast__inner">
+    <div class="toast__line"></div>
+    <div class="toast__text">
+      <div class="toast__title">
+        <div class="toast__circle"></div>
+        <h3 class="toast__title-text">{{ title }}</h3>
+      </div>
+      <div class="toast__description">{{ message }}</div>
+    </div>
+  </div>
+  <img class="toast__close" [src]="closeSvg" alt="close" (click)="remove()">
+</div>
