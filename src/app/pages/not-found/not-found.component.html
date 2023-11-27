@@ -1,0 +1,11 @@
+<section class="page_404">
+  <div class="page_404__container">
+    <img [src]="notFoundGif" alt="not-found">
+    <h3>404</h3>
+    <div class="page_404__container-inner">
+      <h4>Look like you're lost</h4>
+      <p>the page you are looking for not available!</p>
+      <app-button label="Go to Home" (handleClick)="handleNavigate()" />
+    </div>
+  </div>
+</section>

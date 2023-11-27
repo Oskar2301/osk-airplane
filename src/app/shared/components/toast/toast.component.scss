@@ -1,0 +1,87 @@
+:host {
+  pointer-events: all !important;
+  transition: none;
+}
+
+.toast {
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+    padding: 16px;
+    border-radius: 10px;
+    background: #FFF;
+    box-shadow: 0 8px 18px 0 rgba(0, 15, 69, 0.30);
+    min-width: 300px;
+    max-width: 450px;
+    position: absolute;
+    right: -450px;
+    animation: showToast .8s ease forwards alternate;
+  }
+
+  &__line {
+    content: '';
+    width: 4px;
+    border-radius: 10px;
+    position: absolute;
+    height: calc(100% - 32px);
+  }
+
+  &__circle {
+    width: 20px;
+    height: 20px;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  &__text {
+    padding-left: 16px;
+  }
+
+  &__title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+      &-text {
+        color: #1E1C25;
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 150%;
+        letter-spacing: 0.2px;
+      }
+  }
+
+  &__description {
+    margin-top: 8px;
+    color: #1E1C25;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 150%;
+    letter-spacing: 0.2px;
+    align-self: stretch;
+  }
+
+  &__close {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+
+    &:hover {
+      filter: invert(.2);
+    }
+  }
+}
+
+@keyframes showToast {
+  0% {
+    right: -450px
+  }
+
+  80% {
+    right: 10px;
+  }
+
+  100% {
+    right: 0;
+  }
+}

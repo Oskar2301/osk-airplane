@@ -4,3 +4,25 @@
   box-sizing: border-box;
   font-family: 'Montserrat', sans-serif;
 }
+
+.toast__wrapper {
+  &.success {
+    .toast__line {
+      background-color: #00B743;
+    }
+
+    .toast__circle {
+      background-image: url("/assets/images/toast/check-circle.svg");
+    }
+  }
+
+  &.error {
+    .toast__line {
+      background-color: #FC512A;
+    }
+
+    .toast__circle {
+      background-image: url("/assets/images/toast/ban.svg");
+    }
+  }
+}
