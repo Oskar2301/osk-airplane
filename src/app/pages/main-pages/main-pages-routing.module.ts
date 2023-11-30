@@ -1,9 +1,9 @@
-import { AuthGuard } from "../../common/guards/auth.guard";
-import { RouterModule, Routes } from "@angular/router";
-import { NgModule } from "@angular/core";
-import { PagesEnum } from "../../common/enums/route.enum";
-import { MainPagesComponent } from "./main-pages.component";
-import { TripsComponent } from "./trips/trips.component";
+import { AuthGuard } from '../../common/guards/auth.guard';
+import { RouterModule, Routes } from '@angular/router';
+import { NgModule } from '@angular/core';
+import { PagesEnum } from '../../common/enums/route.enum';
+import { MainPagesComponent } from './main-pages.component';
+import { TripsComponent } from './trips/trips.component';
 
 const routes: Routes = [
   {
@@ -13,14 +13,14 @@ const routes: Routes = [
     children: [
       {
         path: PagesEnum.TripsPage,
-        component: TripsComponent
-      }
-    ]
-  }
+        component: TripsComponent,
+      },
+    ],
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class MainPagesRoutingModule {}

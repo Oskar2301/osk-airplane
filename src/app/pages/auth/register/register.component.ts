@@ -3,11 +3,13 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { IRegisterApi } from '../../../api/auth/auth-api.interface';
 import { AuthService } from '../../../shared/services/auth.service';
 import { AuthNavigateEnum } from '../../../common/enums/route.enum';
+import { fadeInOnEnterAnimation } from 'angular-animations';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['../auth.styles.scss', './register.component.scss'],
+  animations: [fadeInOnEnterAnimation()],
 })
 export class RegisterComponent {
   public isLoading = this.authService.isLoading;

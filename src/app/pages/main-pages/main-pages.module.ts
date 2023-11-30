@@ -8,10 +8,15 @@ import { MainPagesComponent } from './main-pages.component';
 // Modules
 import { SharedModule } from 'src/app/shared/shared.module';
 import { MainPagesRoutingModule } from './main-pages-routing.module';
-import { TripsComponent } from "./trips/trips.component";
+import { TripsComponent } from './trips/trips.component';
 
 @NgModule({
   declarations: [MainPagesComponent, TripsComponent],
-  imports: [SharedModule, MainPagesRoutingModule, CommonModule, NgOptimizedImage]
+  imports: [
+    SharedModule,
+    MainPagesRoutingModule,
+    CommonModule,
+    NgOptimizedImage,
+  ],
 })
 export class MainPagesModule {}
