@@ -1,0 +1,16 @@
+.dropdown-toggle {
+  cursor: pointer;
+
+  &::after {
+    display: none;
+  }
+}
+
+.dropdown-menu.show {
+  padding: 0;
+
+  .dropdown-item {
+    padding: 8px 20px;
+    font-size: 14px;
+  }
+}

@@ -1,0 +1,92 @@
+header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 40px;
+  border-bottom: 1px solid lightgray;
+}
+
+.header {
+  &__logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    p {
+      font-size: 26px;
+      font-weight: 600;
+      color: black;
+    }
+  }
+
+  &__search {
+    display: flex;
+    align-items: center;
+    border: 1px solid lightgray;
+    border-radius: 30px;
+    padding: 8px;
+
+    &-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: lightcoral;
+      border-radius: 50%;
+      cursor: pointer;
+
+      img {
+        filter: invert(1);
+      }
+    }
+
+    &-input {
+      width: 0;
+      outline: none;
+      background: transparent;
+      border: 0;
+      font-size: 18px;
+      padding: 0;
+      transition: all .4s ease-in-out;
+    }
+
+    &-active {
+      width: 300px;
+      padding: 8px;
+      transition: all .4s ease-in-out;
+    }
+  }
+
+  &__menu {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+
+    p {
+      font-weight: 500;
+      font-size: 16px;
+    }
+
+    &-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      border-radius: 45px;
+      border: 1px solid lightgray;
+      padding: 8px;
+      transition: all .3s ease-in-out;
+
+      &:hover {
+        box-shadow: rgba(0, 0, 0, 0.24) 0 3px 8px;
+      }
+
+      ::ng-deep .logout {
+        color: red;
+        border-top: 1px solid lightgray;
+      }
+    }
+  }
+}

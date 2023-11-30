@@ -1,0 +1,22 @@
+<header>
+  <div class="header__logo">
+    <img [ngSrc]="logoImage" alt="logo" width="30" height="30">
+    <p>OSPLANE</p>
+  </div>
+  <div class="header__search">
+    <div class="header__search-icon" (click)="handleActiveSearch()">
+      <img [ngSrc]="searchSvg" width="25" height="25" alt="search">
+    </div>
+    <input type="text" class="header__search-input" [class.header__search-active]="isActive" placeholder="Search...">
+  </div>
+  <div class="header__menu">
+    <p>Osplane your home</p>
+
+    <div class="header__menu-wrapper">
+      <app-dropdown [options]="options">
+        test
+      </app-dropdown>
+      <app-user-avatar [user]="(user | async)!" [isLoading]="isLoading!"></app-user-avatar>
+    </div>
+  </div>
+</header>

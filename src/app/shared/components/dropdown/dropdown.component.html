@@ -1,0 +1,8 @@
+<div ngbDropdown>
+  <div ngbDropdownToggle id="dropdown">
+    <ng-content></ng-content>
+  </div>
+  <div ngbDropdownMenu aria-labelledby="dropdown">
+    <button ngbDropdownItem *ngFor="let option of options" (click)="option.onClick()" [ngClass]="option.class">{{ option.title }}</button>
+  </div>
+</div>
