@@ -2,11 +2,13 @@ import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from '../../../shared/services/auth.service';
 import { IForgotApi } from '../../../api/auth/auth-api.interface';
+import { fadeInOnEnterAnimation } from 'angular-animations';
 
 @Component({
   selector: 'app-forgot-password',
   templateUrl: './forgot-password.component.html',
   styleUrls: ['./forgot-password.component.scss', '../auth.styles.scss'],
+  animations: [fadeInOnEnterAnimation()],
 })
 export class ForgotPasswordComponent {
   public isLoading = this.authService.isLoading;

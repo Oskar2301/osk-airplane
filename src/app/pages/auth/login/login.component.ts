@@ -3,11 +3,13 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { ILoginApi } from '../../../api/auth/auth-api.interface';
 import { AuthService } from '../../../shared/services/auth.service';
 import { AuthNavigateEnum } from '../../../common/enums/route.enum';
+import { fadeInOnEnterAnimation } from 'angular-animations';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss', '../auth.styles.scss'],
+  animations: [fadeInOnEnterAnimation()],
 })
 export class LoginComponent {
   public isLoading = this.authService.isLoading;

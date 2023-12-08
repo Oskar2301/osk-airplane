@@ -4,11 +4,13 @@ import { AuthService } from '../../../shared/services/auth.service';
 import { IChangePasswordApi } from '../../../api/auth/auth-api.interface';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthNavigateEnum } from '../../../common/enums/route.enum';
+import { fadeInOnEnterAnimation } from 'angular-animations';
 
 @Component({
   selector: 'app-change-password',
   templateUrl: './change-password.component.html',
   styleUrls: ['./change-password.component.scss', '../auth.styles.scss'],
+  animations: [fadeInOnEnterAnimation()],
 })
 export class ChangePasswordComponent implements OnInit {
   public isLoading = this.authService.isLoading;

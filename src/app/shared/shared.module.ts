@@ -6,6 +6,11 @@ import { InputOutlineComponent } from './components/input-outline/input-outline.
 import { CheckMarkComponent } from './components/check-mark/check-mark.component';
 import { ToastComponent } from './components/toast/toast.component';
 import { ButtonComponent } from './components/button/button.component';
+import { HeaderComponent } from './components/header/header.component';
+import { UserAvatarComponent } from './components/user-avatar/user-avatar.component';
+import { DropdownComponent } from './components/dropdown/dropdown.component';
+import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
+import { SvgIconComponent } from './components/svg-icon/svg-icon.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +20,10 @@ import { ButtonComponent } from './components/button/button.component';
     CheckMarkComponent,
     ToastComponent,
     ButtonComponent,
+    HeaderComponent,
+    UserAvatarComponent,
+    DropdownComponent,
+    SvgIconComponent,
   ],
   exports: [
     LoaderComponent,
@@ -23,8 +32,10 @@ import { ButtonComponent } from './components/button/button.component';
     CheckMarkComponent,
     ToastComponent,
     ButtonComponent,
+    HeaderComponent,
+    SvgIconComponent
   ],
-  imports: [NgOptimizedImage, CommonModule],
+  imports: [NgOptimizedImage, CommonModule, NgbModule],
   providers: [],
 })
 export class SharedModule {}

@@ -131,4 +131,9 @@ export class AuthService {
         }
       });
   }
+
+  public async logout(): Promise<void> {
+    localStorage.removeItem('accessToken');
+    await this.router.navigate([AuthNavigateEnum.Login])
+  }
 }
