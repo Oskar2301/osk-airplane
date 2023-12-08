@@ -1,0 +1,27 @@
+span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.xs svg {
+  width: 15px;
+  height: 15px;
+}
+
+.sm svg {
+  width: 25px;
+  height: 25px;
+}
+
+.white {
+  svg { fill: white }
+  path { fill: white }
+}
+
+.red {
+  svg { fill: red }
+  path { fill: red }
+}

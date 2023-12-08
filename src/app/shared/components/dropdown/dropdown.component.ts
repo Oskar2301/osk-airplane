@@ -13,5 +13,6 @@ export interface IOption {
   styleUrls: ['./dropdown.component.scss'],
 })
 export class DropdownComponent {
-  @Input() options: IOption[];
+  @Input() options: IOption[]
+  @Input() placement: string;
 }

@@ -4,6 +4,7 @@ import { UserService } from '../../services/user.service';
 import { Observable } from 'rxjs';
 import { IOption } from '../dropdown/dropdown.component';
 import { AuthService } from '../../services/auth.service';
+import { IconEnum } from "../../../common/enums/icons.enum";
 
 @Component({
   selector: 'app-header',
@@ -17,21 +18,24 @@ export class HeaderComponent {
   public options: IOption[] = [
     {
       title: 'My trips',
-      onClick: () => {},
+      svgIcon: IconEnum.Trips,
+      onClick: () => {}
     },
     {
       title: 'My favourite',
-      onClick: () => {},
+      svgIcon: IconEnum.Favourite,
+      onClick: () => {}
     },
     {
       title: 'Logout',
       class: 'logout',
-      onClick: () => this.authService.logout(),
+      svgIcon: IconEnum.Logout,
+      onClick: () => this.authService.logout()
     },
   ];
 
   public readonly logoImage = 'assets/images/earth_logo.png';
-  public readonly searchSvg = 'assets/svg/search.svg';
+  public readonly searchSvg = IconEnum.Search;
 
   constructor(
     private readonly userService: UserService,

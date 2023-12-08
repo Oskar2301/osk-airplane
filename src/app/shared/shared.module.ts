@@ -10,6 +10,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { UserAvatarComponent } from './components/user-avatar/user-avatar.component';
 import { DropdownComponent } from './components/dropdown/dropdown.component';
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
+import { SvgIconComponent } from './components/svg-icon/svg-icon.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
     HeaderComponent,
     UserAvatarComponent,
     DropdownComponent,
+    SvgIconComponent,
   ],
   exports: [
     LoaderComponent,
@@ -30,7 +32,8 @@ import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
     CheckMarkComponent,
     ToastComponent,
     ButtonComponent,
-    HeaderComponent
+    HeaderComponent,
+    SvgIconComponent
   ],
   imports: [NgOptimizedImage, CommonModule, NgbModule],
   providers: [],

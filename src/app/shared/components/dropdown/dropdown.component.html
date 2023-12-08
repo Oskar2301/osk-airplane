@@ -3,6 +3,15 @@
     <ng-content></ng-content>
   </div>
   <div ngbDropdownMenu aria-labelledby="dropdown">
-    <button ngbDropdownItem *ngFor="let option of options" (click)="option.onClick()" [ngClass]="option.class">{{ option.title }}</button>
+    <button
+      class="option"
+      ngbDropdownItem
+      *ngFor="let option of options"
+      (click)="option.onClick()"
+      [ngClass]="option.class"
+    >
+      <app-svg-icon *ngIf="option.svgIcon" [classes]="{ 'xs': true, 'red': option.class === 'logout'}" [name]="option.svgIcon"></app-svg-icon>
+      {{ option.title }}
+    </button>
   </div>
 </div>

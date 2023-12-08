@@ -5,7 +5,7 @@
   </div>
   <div class="header__search">
     <div class="header__search-icon" (click)="handleActiveSearch()">
-      <img [ngSrc]="searchSvg" width="25" height="25" alt="search">
+      <app-svg-icon [name]="searchSvg" classes="sm white"></app-svg-icon>
     </div>
     <input type="text" class="header__search-input" [class.header__search-active]="isActive" placeholder="Search...">
   </div>
