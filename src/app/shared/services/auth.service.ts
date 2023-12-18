@@ -13,8 +13,7 @@ import {
   ILoginApi,
   IRegisterApi,
 } from '../../api/auth/auth-api.interface';
-import { BehaviorSubject, catchError, finalize, of } from 'rxjs';
-import { ToastService } from './toast.service';
+import { BehaviorSubject, finalize } from 'rxjs';
 
 @UntilDestroy({ checkProperties: true })
 @Injectable({
@@ -27,7 +26,6 @@ export class AuthService {
   constructor(
     private readonly authApiService: AuthApiService,
     private readonly router: Router,
-    private readonly toastService: ToastService
   ) {}
 
   public getToken(): string {
@@ -55,10 +53,6 @@ export class AuthService {
       .pipe(
         untilDestroyed(this),
         finalize(() => this.isLoadingSubject.next(false)),
-        catchError((e) => {
-          this.toastService.error(e.error.message, 'Error');
-          return of(e);
-        })
       )
       .subscribe(async ({ token }) => {
         if (token) {
@@ -75,10 +69,6 @@ export class AuthService {
       .pipe(
         untilDestroyed(this),
         finalize(() => this.isLoadingSubject.next(false)),
-        catchError((e) => {
-          this.toastService.error(e.error.message, 'Error');
-          return of(e);
-        })
       )
       .subscribe(async () => {
         await this.router.navigate([AuthNavigateEnum.Success], {
@@ -99,10 +89,6 @@ export class AuthService {
           this.deleteToken();
           this.isLoadingSubject.next(false);
         }),
-        catchError((e) => {
-          this.toastService.error(e.error.message, 'Error');
-          return of(e);
-        })
       )
       .subscribe(async () => {
         await this.router.navigate([AuthNavigateEnum.Success], {
@@ -119,10 +105,6 @@ export class AuthService {
       .pipe(
         untilDestroyed(this),
         finalize(() => this.isLoadingSubject.next(false)),
-        catchError((e) => {
-          this.toastService.error(e.error.message, 'Error');
-          return of(e);
-        })
       )
       .subscribe(async ({ token }) => {
         if (token) {
@@ -134,6 +116,6 @@ export class AuthService {
 
   public async logout(): Promise<void> {
     localStorage.removeItem('accessToken');
-    await this.router.navigate([AuthNavigateEnum.Login])
+    await this.router.navigate([AuthNavigateEnum.Login]);
   }
 }

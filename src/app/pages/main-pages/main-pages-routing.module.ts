@@ -4,8 +4,10 @@ import { NgModule } from '@angular/core';
 import { PagesEnum } from '../../common/enums/route.enum';
 import { MainPagesComponent } from './main-pages.component';
 import { TripsComponent } from './trips/trips.component';
+import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [
+  { path: '', redirectTo: PagesEnum.TripsPage, pathMatch: 'full' },
   {
     path: '',
     canActivate: [AuthGuard],
@@ -14,6 +16,10 @@ const routes: Routes = [
       {
         path: PagesEnum.TripsPage,
         component: TripsComponent,
+      },
+      {
+        path: PagesEnum.ProfilePage,
+        component: ProfileComponent,
       },
     ],
   },

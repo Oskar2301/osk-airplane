@@ -1,0 +1,16 @@
+<div class="profile">
+  <form class="profile__wrapper" [formGroup]="profileForm" (ngSubmit)="submitProfile()">
+    <h1>Edit Profile</h1>
+    <div class="profile__avatar">
+      <app-user-avatar [preview]="preview" classes="xl" [user]="user"></app-user-avatar>
+      <label for="file-upload" class="profile__avatar-upload" (click)="fileInput.click()">
+        <app-button typeButton="button" label="Change avatar"></app-button>
+      </label>
+      <input id="file-upload" #fileInput type="file" (change)="fileUpload($event)"/>
+    </div>
+    <app-input formControlName="name" label="Name" placeholder="Enter name..."></app-input>
+    <app-input formControlName="email" label="Email" placeholder="Enter email..."></app-input>
+    <app-input formControlName="password" type="password" label="Password" placeholder="Enter new password..."></app-input>
+    <app-button class="profile__submit" label="Save changes" typeButton="submit" [isDisabled]="profileForm.invalid || !profileForm.dirty"></app-button>
+  </form>
+</div>

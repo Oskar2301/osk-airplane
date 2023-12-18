@@ -1,0 +1,11 @@
+<div class="input">
+  <label class="input__label">{{ label }}</label>
+  <input
+    #inputRef
+    [type]="type"
+    [value]="value"
+    class="input__field"
+    (input)="onChange(inputRef.value)"
+    [placeholder]="placeholder"
+  />
+</div>
