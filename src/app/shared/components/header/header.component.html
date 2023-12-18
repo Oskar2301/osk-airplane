@@ -1,9 +1,9 @@
 <header>
-  <div class="header__logo">
+  <div class="header__logo" [routerLink]="TripsNavigate">
     <img [ngSrc]="logoImage" alt="logo" width="30" height="30">
     <p>OSPLANE</p>
   </div>
-  <div class="header__search">
+  <div *ngIf="isShowSearch" class="header__search">
     <div class="header__search-icon" (click)="handleActiveSearch()">
       <app-svg-icon [name]="searchSvg" classes="sm white"></app-svg-icon>
     </div>
@@ -12,11 +12,11 @@
   <div class="header__menu">
     <p>Osplane your home</p>
 
-    <div class="header__menu-wrapper">
       <app-dropdown [options]="options">
-        test
+        <div class="header__menu-wrapper">
+          <span *ngIf="user">{{ user.name }}</span>
+          <app-user-avatar [user]="user" [isLoading]="isLoading!"></app-user-avatar>
+        </div>
       </app-dropdown>
-      <app-user-avatar [user]="(user | async)!" [isLoading]="isLoading!"></app-user-avatar>
-    </div>
   </div>
 </header>

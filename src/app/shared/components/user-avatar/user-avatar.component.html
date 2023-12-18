@@ -1,5 +1,5 @@
-<div class="avatar">
-  <img *ngIf="isImage && !isLoading" [src]="user.avatarUrl" alt="avatar">
+<div class="avatar" [class]="classes">
+  <img *ngIf="isImage && !isLoading" [src]="preview || user.avatarUrl" alt="avatar">
   <div *ngIf="isLoading || !firstLetter" class="avatar__loading"></div>
   <div *ngIf="!isImage && !isLoading && firstLetter" class="avatar__letter">{{ firstLetter }}</div>
 </div>

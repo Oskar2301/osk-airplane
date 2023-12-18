@@ -9,8 +9,10 @@ import { ButtonComponent } from './components/button/button.component';
 import { HeaderComponent } from './components/header/header.component';
 import { UserAvatarComponent } from './components/user-avatar/user-avatar.component';
 import { DropdownComponent } from './components/dropdown/dropdown.component';
-import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SvgIconComponent } from './components/svg-icon/svg-icon.component';
+import { RouterModule } from '@angular/router';
+import { InputComponent } from './components/input/input.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +26,7 @@ import { SvgIconComponent } from './components/svg-icon/svg-icon.component';
     UserAvatarComponent,
     DropdownComponent,
     SvgIconComponent,
+    InputComponent,
   ],
   exports: [
     LoaderComponent,
@@ -33,9 +36,11 @@ import { SvgIconComponent } from './components/svg-icon/svg-icon.component';
     ToastComponent,
     ButtonComponent,
     HeaderComponent,
-    SvgIconComponent
+    SvgIconComponent,
+    UserAvatarComponent,
+    InputComponent,
   ],
-  imports: [NgOptimizedImage, CommonModule, NgbModule],
+  imports: [NgOptimizedImage, CommonModule, NgbModule, RouterModule],
   providers: [],
 })
 export class SharedModule {}

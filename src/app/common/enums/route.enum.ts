@@ -1,11 +1,13 @@
 export enum PagesEnum {
   GetStarted = 'get-started',
   TripsPage = 'trips',
+  ProfilePage = 'profile',
 }
 
 export enum PagesNavigateEnum {
   GetStarted = '/get-started',
   TripsPage = '/trips',
+  ProfilePage = '/profile',
 }
 
 export enum AuthEnum {
