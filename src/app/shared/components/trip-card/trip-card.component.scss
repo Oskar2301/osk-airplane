@@ -1,0 +1,62 @@
+.trip {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  background: white;
+  transition: all .3s ease-in-out;
+  padding: 20px;
+
+
+  &__image {
+    width: 220px;
+    height: 220px;
+    overflow: hidden;
+    border-radius: 14px;
+
+    img {
+      border-radius: 14px;
+      max-width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: all .3s ease;
+    }
+  }
+
+  h3 {
+    font-weight: 600;
+    font-size: 18px;
+    margin-top: 10px;
+  }
+
+  &__info {
+    font-size: 14px;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: lightgray;
+  }
+
+  &__cost {
+    font-size: 16px;
+    margin-top: 10px;
+
+    span {
+      font-weight: bold;
+    }
+  }
+
+  &:hover {
+    background: #edeaea;
+    transition: all .3s ease;
+
+    img {
+      transform: scale(1.1);
+      transition: all .3s ease-in-out;
+    }
+  }
+
+  &.default:hover img {
+    transform: scale(1);
+  }
+}

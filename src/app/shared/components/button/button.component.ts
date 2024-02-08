@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 type TypeButton = 'submit' | 'button';
+type variantButton = 'primary' | 'outline';
 
 @Component({
   selector: 'app-button',
@@ -13,6 +14,7 @@ export class ButtonComponent {
   @Input() isDisabled: boolean | null;
   @Input() typeButton: TypeButton = 'button';
   @Input() styles: string;
+  @Input() variant: variantButton = 'primary';
 
   @Output() handleClick = new EventEmitter();
 

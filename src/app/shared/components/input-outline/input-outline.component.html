@@ -10,5 +10,5 @@
     (blur)="handleBlur($event)"
     [autocomplete]="isTypePassword ? 'new-password' : 'off'"
   />
-  <label class="outline__label">{{ label }}</label>
+  <label class="outline__label">{{ label }}<span *ngIf="isRequired"> *</span></label>
 </div>

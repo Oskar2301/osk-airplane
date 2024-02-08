@@ -12,6 +12,10 @@
     color: #bbb;
     pointer-events: none;
     transition: 0.4s;
+
+    span {
+      color: red;
+    }
   }
 
   &__field {
@@ -26,6 +30,18 @@
     font-size: 1rem;
     color: #151111;
     transition: 0.4s;
+
+    /* Chrome, Safari, Edge, Opera */
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    /* Firefox */
+    &[type=number] {
+      -moz-appearance: textfield;
+    }
   }
 
   &__active {

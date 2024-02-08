@@ -1,0 +1,38 @@
+<div class="location">
+  <h3 class="location__title">Where is your country located?</h3>
+  <p class="location__description">Help guests find you!</p>
+  <ng-select class="location__selector" [(ngModel)]="selectedCountry" [clearable]="false" [items]="createTripService.countries" placeholder="Anywhere">
+    <ng-template ng-option-tmp let-item="item">
+      <div class="location__option">
+        <div>{{ item.flag }}</div>
+        <div>
+          {{ item.label }},
+          <span> {{ item.region}} </span>
+        </div>
+      </div>
+    </ng-template>
+
+    <ng-template ng-label-tmp let-item="item">
+      <div class="location__option">
+        <div>{{ item.flag }}</div>
+        <div>{{ item.label }}</div>
+      </div>
+    </ng-template>
+  </ng-select>
+  <app-map class="location__map" [location]="selectedCountry && selectedCountry.latlng"></app-map>
+  <div class="location__buttons">
+    <app-button
+      class="next-button"
+      label="Back"
+      variant="outline"
+      (handleClick)="createTripService.handleBackStep(StepEnum.SelectType)"
+    ></app-button>
+
+    <app-button
+      class="next-button"
+      [isDisabled]="!selectedCountry"
+      label="Next"
+      (handleClick)="createTripService.handleNextStep(StepEnum.Form, selectedCountry)"
+    ></app-button>
+  </div>
+</div>

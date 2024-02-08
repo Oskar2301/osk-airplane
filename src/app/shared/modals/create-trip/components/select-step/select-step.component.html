@@ -1,0 +1,16 @@
+<div class="types">
+  <h3 class="types__title">Which of these best describes your place?</h3>
+  <p class="types__description">Pick a category</p>
+  <div class="types__wrapper">
+    <div
+      *ngFor="let tripType of createTripService.tripsType"
+      class="types__type"
+      [class.types__type-active]="createTripService.selectedType === tripType.typeName"
+      (click)="createTripService.selectType(tripType.typeName)"
+    >
+      <app-svg-icon [name]="tripType.icon" classes="md"></app-svg-icon>
+      <p class="types__type-text">{{tripType.title}}</p>
+    </div>
+  </div>
+  <app-button class="next-button" label="Next" [isDisabled]="!createTripService.selectedType" (handleClick)="createTripService.handleNextStep(StepEnum.Location)"></app-button>
+</div>

@@ -11,6 +11,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { MainPagesRoutingModule } from './main-pages-routing.module';
 import { TripsComponent } from './trips/trips.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 
 @NgModule({
   declarations: [MainPagesComponent, TripsComponent, ProfileComponent],
@@ -21,6 +22,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     NgOptimizedImage,
     FormsModule,
     ReactiveFormsModule,
+    NgxSkeletonLoaderModule,
   ],
 })
 export class MainPagesModule {}

@@ -7,6 +7,7 @@
       class="option"
       ngbDropdownItem
       *ngFor="let option of options"
+      [class.danger]="option.class === 'logout'"
       (click)="option.onClick()"
       [ngClass]="option.class"
     >

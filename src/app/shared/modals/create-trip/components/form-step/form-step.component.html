@@ -1,0 +1,32 @@
+<div class="format">
+  <form [formGroup]="previewTripForm" (ngSubmit)="submitForm()">
+    <div class="format__container">
+      <div class="format__fields">
+        <app-input-outline formControlName="name" [isRequired]="true" label="Name"></app-input-outline>
+        <app-input-outline formControlName="cost" [isRequired]="true" [isActive]="true" type="number" label="Cost"></app-input-outline>
+        <app-input-outline formControlName="date" [isRequired]="true" [isActive]="true" type="date" label="End date"></app-input-outline>
+        <app-upload-image (handleUpload)="handleUpload($event)"></app-upload-image>
+      </div>
+      <div class="format__preview">
+        <h2>Preview of trip</h2>
+        <app-trip-card [trip]="this.previewTripForm.value"></app-trip-card>
+      </div>
+    </div>
+    <div class="format__buttons">
+      <app-button
+        class="next-button"
+        label="Back"
+        variant="outline"
+        (handleClick)="createTripService.handleBackStep(StepEnum.Location)"
+      ></app-button>
+
+      <app-button
+        class="next-button"
+        label="Create"
+        typeButton="submit"
+        [isLoading]="isLoading | async"
+        [isDisabled]="previewTripForm.invalid"
+      ></app-button>
+    </div>
+  </form>
+</div>

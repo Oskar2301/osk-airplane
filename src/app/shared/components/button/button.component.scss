@@ -23,4 +23,16 @@
       background-color: #b0afaf;
     }
   }
+
+
+  &.outline {
+    background: transparent;
+    border: 2px solid #151111;
+    color: #151111;
+
+    &:hover {
+      color: #8371fd;
+      border-color: #8371fd;
+    }
+  }
 }

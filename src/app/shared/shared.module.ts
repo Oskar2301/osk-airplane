@@ -13,6 +13,17 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SvgIconComponent } from './components/svg-icon/svg-icon.component';
 import { RouterModule } from '@angular/router';
 import { InputComponent } from './components/input/input.component';
+import { TripCardComponent } from './components/trip-card/trip-card.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CreateTripComponent } from './modals/create-trip/create-trip.component';
+import { NgSelectModule } from '@ng-select/ng-select';
+import { LocationStepComponent } from './modals/create-trip/components/location-step/location-step.component';
+import { SelectStepComponent } from './modals/create-trip/components/select-step/select-step.component';
+import { MapComponent } from './components/map/map.component';
+import { LeafletModule } from '@asymmetrik/ngx-leaflet';
+import { FormStepComponent } from './modals/create-trip/components/form-step/form-step.component';
+import { UploadImageComponent } from './components/upload-image/upload-image.component';
+import { DndDirective } from '../common/directives/dnd.directive';
 
 @NgModule({
   declarations: [
@@ -27,6 +38,14 @@ import { InputComponent } from './components/input/input.component';
     DropdownComponent,
     SvgIconComponent,
     InputComponent,
+    TripCardComponent,
+    CreateTripComponent,
+    LocationStepComponent,
+    SelectStepComponent,
+    MapComponent,
+    FormStepComponent,
+    UploadImageComponent,
+    DndDirective,
   ],
   exports: [
     LoaderComponent,
@@ -39,8 +58,19 @@ import { InputComponent } from './components/input/input.component';
     SvgIconComponent,
     UserAvatarComponent,
     InputComponent,
+    TripCardComponent,
+    CreateTripComponent,
   ],
-  imports: [NgOptimizedImage, CommonModule, NgbModule, RouterModule],
+  imports: [
+    NgOptimizedImage,
+    CommonModule,
+    NgbModule,
+    RouterModule,
+    ReactiveFormsModule,
+    NgSelectModule,
+    FormsModule,
+    LeafletModule,
+  ],
   providers: [],
 })
 export class SharedModule {}

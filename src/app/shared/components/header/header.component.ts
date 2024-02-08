@@ -1,13 +1,16 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { IUser } from '../../../api/user/user-api.interface';
-import { UserService } from '../../services/user.service';
+import { IUser } from 'src/app/api/user/user-api.interface';
+import { UserService } from 'src/app/shared/services/user.service';
 import { IOption } from '../dropdown/dropdown.component';
-import { AuthService } from '../../services/auth.service';
-import { IconEnum } from '../../../common/enums/icons.enum';
+import { AuthService } from 'src/app/shared/services/auth.service';
+import { IconEnum } from 'src/app/common/enums/icons.enum';
 import { NavigationEnd, Router } from '@angular/router';
-import { PagesNavigateEnum } from '../../../common/enums/route.enum';
+import { PagesNavigateEnum } from 'src/app/common/enums/route.enum';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
-import { headerSearch } from '../../../common/const/header-search';
+import { headerSearch } from 'src/app//common/const/header-search';
+import { FormControl } from '@angular/forms';
+import { debounceTime, distinctUntilChanged } from 'rxjs';
+import { TripsService } from 'src/app/shared/services/trips.service';
 
 @UntilDestroy()
 @Component({
@@ -18,8 +21,9 @@ import { headerSearch } from '../../../common/const/header-search';
 export class HeaderComponent implements OnInit {
   @Input() isLoading: boolean | null;
   public user: IUser = this.userService.user;
-  public isShowSearch = true;
+  public isShowElement = true;
   public isActive = false;
+  public searchControl = new FormControl<string>('');
   public options: IOption[] = [
     {
       title: 'My trips',
@@ -46,15 +50,34 @@ export class HeaderComponent implements OnInit {
 
   public readonly logoImage = 'assets/images/earth_logo.png';
   public readonly searchSvg = IconEnum.Search;
+  public readonly plusSvg = IconEnum.Plus;
   public readonly TripsNavigate = PagesNavigateEnum.TripsPage;
 
   constructor(
     private readonly userService: UserService,
     private readonly authService: AuthService,
+    private readonly tripsService: TripsService,
     private readonly router: Router,
   ) {}
 
   public ngOnInit(): void {
+    this.initData();
+  }
+
+  public checkIsTrips(): void {
+    const url: string = this.router.url;
+    this.isShowElement = !headerSearch.includes(url);
+  }
+
+  public handleOpen(): void {
+    this.tripsService.openCreateModal();
+  }
+
+  public handleActiveSearch(): void {
+    this.isActive = !this.isActive;
+  }
+
+  private initData(): void {
     this.userService.userTrigger.pipe(untilDestroyed(this)).subscribe(() => {
       this.user = this.userService.user;
     });
@@ -66,14 +89,15 @@ export class HeaderComponent implements OnInit {
         this.checkIsTrips();
       }
     });
-  }
 
-  public checkIsTrips(): void {
-    const url: string = this.router.url;
-    this.isShowSearch = !headerSearch.includes(url);
-  }
-
-  public handleActiveSearch(): void {
-    this.isActive = !this.isActive;
+    this.searchControl.valueChanges
+      .pipe(untilDestroyed(this), debounceTime(1000), distinctUntilChanged())
+      .subscribe((value) => {
+        if (value) {
+          this.tripsService.searchTrips(value);
+        } else {
+          this.tripsService.clearTripsSearch();
+        }
+      });
   }
 }

@@ -1,1 +1,14 @@
-<p>trips works!</p>
+<div class="trips">
+  <div class="trips__types">
+    <div *ngFor="let typeTrip of tripsType" class="trips__type" (click)="handleFilter(typeTrip)">
+      <app-svg-icon [name]="typeTrip.icon"></app-svg-icon>
+      <p>{{ typeTrip.title }}</p>
+    </div>
+  </div>
+  <div *ngIf="!(isLoading | async); else skeleton" class="trips__wrapper">
+      <app-trip-card *ngFor="let trip of trips" [trip]="trip" class="trips__center"></app-trip-card>
+  </div>
+  <ng-template #skeleton>
+    <ngx-skeleton-loader class="trips__wrapper" count="12" [theme]="{height: '310px', marginTop: '20px'}"></ngx-skeleton-loader>
+  </ng-template>
+</div>

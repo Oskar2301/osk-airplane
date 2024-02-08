@@ -1,7 +1,7 @@
 import { Component, forwardRef, Input } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
-type inputType = 'text' | 'password';
+type inputType = 'text' | 'password' | 'number' | 'date';
 
 @Component({
   selector: 'app-input-outline',
@@ -18,8 +18,9 @@ type inputType = 'text' | 'password';
 export class InputOutlineComponent implements ControlValueAccessor {
   @Input() type: inputType = 'text';
   @Input() label: string;
+  @Input() isActive = false;
+  @Input() isRequired = false;
 
-  public isActive = false;
   public value = '';
 
   public get isTypePassword(): boolean {

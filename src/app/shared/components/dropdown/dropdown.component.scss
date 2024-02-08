@@ -12,11 +12,16 @@
   }
 }
 
+.danger {
+  color: red;
+}
+
 .dropdown-menu.show {
   padding: 0;
 
   .dropdown-item {
-    padding: 8px 20px;
-    font-size: 14px;
+    padding: 12px 20px;
+    min-width: 200px;
+    font-size: 16px;
   }
 }

@@ -3,14 +3,19 @@
     <img [ngSrc]="logoImage" alt="logo" width="30" height="30">
     <p>OSPLANE</p>
   </div>
-  <div *ngIf="isShowSearch" class="header__search">
+  <div *ngIf="isShowElement" class="header__search">
     <div class="header__search-icon" (click)="handleActiveSearch()">
       <app-svg-icon [name]="searchSvg" classes="sm white"></app-svg-icon>
     </div>
-    <input type="text" class="header__search-input" [class.header__search-active]="isActive" placeholder="Search...">
+    <input [formControl]="searchControl" type="text" class="header__search-input" [class.header__search-active]="isActive" placeholder="Search...">
   </div>
   <div class="header__menu">
-    <p>Osplane your home</p>
+      <div class="header__wrapper">
+        <p>Osplane your home</p>
+        <div *ngIf="isShowElement" class="header__add" (click)="handleOpen()">
+          <app-svg-icon [name]="plusSvg" classes="white"></app-svg-icon>
+        </div>
+      </div>
 
       <app-dropdown [options]="options">
         <div class="header__menu-wrapper">

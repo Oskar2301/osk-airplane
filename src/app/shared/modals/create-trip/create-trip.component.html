@@ -1,0 +1,16 @@
+<div class="modal__header">
+  <div class="modal__logo">
+    <img [ngSrc]="logoImage" alt="logo" width="30" height="30">
+    <p>OSPLANE</p>
+  </div>
+  <div class="modal__close" (click)="closeModal()">
+    <app-svg-icon [name]="closeSvg" classes="md hover:black"></app-svg-icon>
+  </div>
+</div>
+<div class="modal__main">
+
+  <!--SELECTED STEP-->
+  <app-select-step *ngIf="isSelectStep"></app-select-step>
+  <app-location-step *ngIf="isLocationStep"></app-location-step>
+  <app-form-step *ngIf="isFormStep"></app-form-step>
+</div>

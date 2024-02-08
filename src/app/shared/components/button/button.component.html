@@ -1,4 +1,4 @@
-<button [type]="typeButton" class="btn" [disabled]="isDisabled" [ngClass]="styles" (click)="clickButton()">
+<button [type]="typeButton" class="btn" [class]="variant" [disabled]="isDisabled" [ngClass]="styles" (click)="clickButton()">
   {{ isLoading ? '' : label }}
   <i *ngIf="isLoading" class="fa fa-spinner fa-spin connection_spinner"></i>
 </button>

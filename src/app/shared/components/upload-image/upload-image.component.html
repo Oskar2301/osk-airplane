@@ -1,0 +1,6 @@
+<div class="upload__container" appDnd (fileDropped)="fileUpload($event)">
+  <input type="file" id="fileDropRef" accept="image/*" (change)="fileBrowseHandler($event)">
+  <app-svg-icon [name]="uploadSvg" classes="lg"></app-svg-icon>
+  <h3>Drag & drop any file here</h3>
+  <p>or <label for="fileDropRef">browse for file</label> from device</p>
+</div>

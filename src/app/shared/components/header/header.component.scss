@@ -21,6 +21,29 @@ header {
     }
   }
 
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  &__add {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    background: lightcoral;
+    cursor: pointer;
+    transition: all .3s ease;
+
+    &:hover {
+      background: #fa5b5b;
+      transition: all .3s ease;
+    }
+  }
+
   &__search {
     display: flex;
     align-items: center;
