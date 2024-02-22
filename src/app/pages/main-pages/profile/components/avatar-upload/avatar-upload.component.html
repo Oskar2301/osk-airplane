@@ -1,0 +1,8 @@
+<div class="upload">
+  <app-user-avatar [preview]="preview" classes="xl" [user]="user"></app-user-avatar>
+  <label for="file-upload" class="upload__label" (click)="fileInput.click()">
+    <h4>{{ user.name }}</h4>
+    <app-button typeButton="button" label="Change avatar" variant="outline"></app-button>
+  </label>
+  <input id="file-upload" #fileInput type="file" (change)="fileUpload($event)"/>
+</div>

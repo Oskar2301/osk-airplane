@@ -1,38 +1,51 @@
 .profile {
-  height: 100%;
+  min-height: calc(100vh - 104px);
   display: flex;
+  gap: 20px;
   align-items: center;
-  justify-content: center;
+  background: #f3f3f3;
+  flex-direction: column;
 
-  &__wrapper {
-    margin-top: 2rem;
+  &__first {
+    margin-top: 20px;
+  }
+
+  &__items {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+  }
+
+  &__back {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    min-width: 350px;
+    justify-content: space-between;
+    height: 100%;
   }
 
-  &__submit {
-    width: 100%;
-    margin-top: 2rem;
-  }
-
-  &__avatar {
+  &__item  {
+    height: 100%;
+    position: relative;
     display: flex;
     align-items: center;
-    gap: 30px;
+    justify-content: center;
 
-    input[type="file"] {
-      display: none;
+    h4 {
+      font-size: 20px;
+      text-align: center;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
-  }
 
-  h1 {
-    margin-bottom: 2rem;
-  }
-
-  app-input {
-    width: 100%;
-    margin-top: 1rem;
+    p {
+      position: absolute;
+      text-align: center;
+      background: #f3adad;
+      font-size: 22px;
+      top: 0;
+      width: 100%;
+    }
   }
 }

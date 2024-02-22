@@ -1,16 +1,72 @@
 <div class="profile">
-  <form class="profile__wrapper" [formGroup]="profileForm" (ngSubmit)="submitProfile()">
-    <h1>Edit Profile</h1>
-    <div class="profile__avatar">
-      <app-user-avatar [preview]="preview" classes="xl" [user]="user"></app-user-avatar>
-      <label for="file-upload" class="profile__avatar-upload" (click)="fileInput.click()">
-        <app-button typeButton="button" label="Change avatar"></app-button>
-      </label>
-      <input id="file-upload" #fileInput type="file" (change)="fileUpload($event)"/>
+  <app-card class="profile__first">
+    <app-avatar-upload [user]="user"></app-avatar-upload>
+  </app-card>
+
+  <app-card title="Personal info">
+    <div class="profile__items">
+      <app-card-flip>
+        <div class="profile__item" front>
+          <p>Name</p>
+          <h4>{{ user.name }}</h4>
+        </div>
+
+        <div class="profile__back" back>
+          <app-input-outline
+            [formControl]="nameControl"
+            label="Edit name"
+            (click)="$event.stopImmediatePropagation()"
+          ></app-input-outline>
+          <app-button
+            [isDisabled]="nameControl.invalid"
+            (click)="$event.stopImmediatePropagation()"
+            (handleClick)="submitForm('name', nameControl.value)"
+            label="Save"
+          ></app-button>
+        </div>
+      </app-card-flip>
+
+      <app-card-flip>
+        <div class="profile__item" front>
+          <p>Email</p>
+          <h4>{{ user.email }}</h4>
+        </div>
+
+        <div class="profile__back" back>
+          <app-input-outline
+            [formControl]="emailControl"
+            label="Edit email"
+            (click)="$event.stopImmediatePropagation()"
+          ></app-input-outline>
+          <app-button
+            [isDisabled]="emailControl.invalid"
+            (click)="$event.stopImmediatePropagation()"
+            (handleClick)="submitForm('email', emailControl.value)"
+            label="Save"
+          ></app-button>
+        </div>
+      </app-card-flip>
+
+      <app-card-flip>
+        <div class="profile__item" front>
+          <p>Password</p>
+          <h4>****************</h4>
+        </div>
+
+        <div class="profile__back" back>
+          <app-input-outline
+            [formControl]="passwordControl"
+            label="Edit password"
+            (click)="$event.stopImmediatePropagation()"
+          ></app-input-outline>
+          <app-button
+            [isDisabled]="passwordControl.invalid"
+            (click)="$event.stopImmediatePropagation()"
+            (handleClick)="submitForm('password', passwordControl.value)"
+            label="Save"
+          ></app-button>
+        </div>
+      </app-card-flip>
     </div>
-    <app-input formControlName="name" label="Name" placeholder="Enter name..."></app-input>
-    <app-input formControlName="email" label="Email" placeholder="Enter email..."></app-input>
-    <app-input formControlName="password" type="password" label="Password" placeholder="Enter new password..."></app-input>
-    <app-button class="profile__submit" label="Save changes" typeButton="submit" [isDisabled]="profileForm.invalid || !profileForm.dirty"></app-button>
-  </form>
+  </app-card>
 </div>

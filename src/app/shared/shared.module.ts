@@ -24,6 +24,7 @@ import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import { FormStepComponent } from './modals/create-trip/components/form-step/form-step.component';
 import { UploadImageComponent } from './components/upload-image/upload-image.component';
 import { DndDirective } from '../common/directives/dnd.directive';
+import { CardComponent } from './components/card/card.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { DndDirective } from '../common/directives/dnd.directive';
     FormStepComponent,
     UploadImageComponent,
     DndDirective,
+    CardComponent,
   ],
   exports: [
     LoaderComponent,
@@ -60,6 +62,8 @@ import { DndDirective } from '../common/directives/dnd.directive';
     InputComponent,
     TripCardComponent,
     CreateTripComponent,
+    CardComponent,
+    UploadImageComponent,
   ],
   imports: [
     NgOptimizedImage,

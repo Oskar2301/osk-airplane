@@ -1,0 +1,38 @@
+.flip {
+  width: 220px;
+  height: 300px;
+  perspective: 100rem;
+  position: relative;
+  transform: translate(0, 0);
+  transition: all 1s ease-in-out;
+
+  &__side {
+    height: 100%;
+    width: 100%;
+    color: white;
+    position: absolute;
+    top: 0;
+    left: 0;
+    backface-visibility: hidden;
+    background: lightcoral;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0 5px 15px;
+    cursor: pointer;
+    transition: all 1s ease-in-out;
+  }
+
+  &__back {
+    transform: rotateY(180deg);
+  }
+
+  &.flipped {
+    .flip__front {
+      transform: rotateY(-180deg);
+    }
+
+    .flip__back {
+      transform: rotateY(0);
+    }
+  }
+}

@@ -12,9 +12,11 @@ import { MainPagesRoutingModule } from './main-pages-routing.module';
 import { TripsComponent } from './trips/trips.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
+import { AvatarUploadComponent } from './profile/components/avatar-upload/avatar-upload.component';
+import { CardFlipComponent } from './profile/components/card-flip/card-flip.component';
 
 @NgModule({
-  declarations: [MainPagesComponent, TripsComponent, ProfileComponent],
+  declarations: [MainPagesComponent, TripsComponent, ProfileComponent, AvatarUploadComponent, CardFlipComponent],
   imports: [
     SharedModule,
     MainPagesRoutingModule,
